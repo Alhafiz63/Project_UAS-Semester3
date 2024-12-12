@@ -42,6 +42,10 @@ class PaymentsResource extends Resource
             Tables\Columns\TextColumn::make('amount')->label('Amount'),
             Tables\Columns\TextColumn::make('payment_date')->label('Payment Date'),
             Tables\Columns\TextColumn::make('status')->label('Status'),
+            Tables\Columns\ImageColumn::make('receipt_path')
+                ->label('Receipt')
+                ->disk('public'),   
+                
             ])
             ->filters([
                 //
