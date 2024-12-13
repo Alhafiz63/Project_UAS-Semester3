@@ -24,11 +24,6 @@ class RegistrationsResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('student_id')->relationship('student', 'name')->label('Student')->required(),
-            Forms\Components\Select::make('program_choice')->label('Program Choice')->options([
-                'science' => 'Science',
-                'social' => 'Social',
-                'language' => 'Language',
-            ])->required(),
             Forms\Components\DatePicker::make('registration_date')->label('Registration Date')->required(),
             Forms\Components\Select::make('status')->label('Status')->options([
                 'pending' => 'Pending',
@@ -43,7 +38,6 @@ class RegistrationsResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('student.name')->label('Student'),
-            Tables\Columns\TextColumn::make('program_choice')->label('Program Choice'),
             Tables\Columns\TextColumn::make('status')->label('Status'),
             Tables\Columns\TextColumn::make('registration_date')->label('Registration Date'),
             ])

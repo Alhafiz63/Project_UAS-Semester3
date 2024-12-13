@@ -102,11 +102,20 @@ class FrontEndController extends Controller
         return back()->with('success', 'Payment submitted successfully!');
     }
 
-    // Mengambil programmer berdasarkan ID
-public function showProgrammer($programmerId)
+    
+    public function index()
+    {
+        return view('front.index');
+    }
+
+    public function showAbout()
 {
-    $programmer = PersonalProgrammer::findOrFail($programmerId);
-    return view('front.index', compact('programmer'));
+    // Ambil dua programmer pertama dari tabel PersonalProgrammer
+    $programmers = PersonalProgrammer::take(2)->get();
+
+    // Kembalikan data programmer ke view 'front.about'
+    return view('front.about', compact('programmers'));
 }
+
 
 }

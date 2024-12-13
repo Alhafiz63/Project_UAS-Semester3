@@ -3,9 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class UserLogin extends Model
+
+class UserLogin extends Authenticatable
 {
     use HasFactory;
 
@@ -14,4 +15,8 @@ class UserLogin extends Model
 
     
     protected $hidden = ['password'];
+    
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }

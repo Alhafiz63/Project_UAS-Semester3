@@ -11,7 +11,6 @@ class Registrations extends Model
 
     protected $fillable = [
         'student_id',
-        'program_choice',
         'registration_date',
         'status',
     ];
